@@ -9,7 +9,7 @@
 
   // index
   &.full_page
-    height: $index_top_img_height
+    min-height: $index_top_img_height
     background-attachment: fixed
 
     #site-info
@@ -70,7 +70,7 @@
 
   // page
   &.not-home-page
-    height: 20rem
+    min-height: 20rem
 
     +maxWidth768()
       height: 14rem
@@ -86,7 +86,7 @@
 
   // post
   &.post-bg
-    height: 20rem
+    min-height: 20rem
 
     +maxWidth768()
       height: 18rem
@@ -118,7 +118,7 @@
 
   &.not-top-img
     margin-bottom: .5rem
-    height: 60px
+    min-height: 60px
     background: 0
 
     #nav
@@ -303,22 +303,6 @@ _:future,
         padding: 4px
         transition: transform .3s
 
-      & > a
-        &:after
-          position: absolute
-          bottom: 0
-          left: 0
-          z-index: -1
-          width: 0
-          height: 3px
-          background-color: lighten($theme-color, 30%)
-          content: ''
-          transition: all .3s ease-in-out
-
-        &:hover
-          &:after
-            width: 100%
-
       .menus_item_child
         position: absolute
         right: 0
@@ -377,3 +361,19 @@ _:future,
     text-shadow: .05rem .05rem .1rem rgba($dark-black, .3)
     font-size: .78em
     cursor: pointer
+
+    &:not(.child)
+      &:after
+        position: absolute
+        bottom: 0
+        left: 0
+        z-index: -1
+        width: 0
+        height: 3px
+        background-color: lighten($theme-color, 30%)
+        content: ''
+        transition: all .3s ease-in-out
+
+      &:hover
+        &:after
+          width: 100%
